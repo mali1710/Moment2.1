@@ -1,12 +1,16 @@
 //Variabler
-const url = "http://localhost/WebbIII/Webapp/rest.php/kurser";
+const url = "https://mallind.se/rest_api/rest.php/kurser";
 const courseList = document.getElementById("courseList");
+let code = document.getElementById("code").value;
+let name = document.getElementById("name").value;
+let progression = document.getElementById("progression").value;
+let syllabus = document.getElementById("syllabus").value;
 
-const add = document.getElementById("add");
+const add = document.getElementById("add-course");
 
 //Eventlisteners
 window.addEventListener("load", showCourses);
-add.addEventListener("click", addCourse);
+add.addEventListener("submit", addCourse);
 
 /*
 Functions
@@ -14,17 +18,18 @@ Functions
 
 //Laddar lista med kurser
 function showCourses() {
-  let output = "";
   fetch(url)
     .then(res => res.json())
     .then(data => {
+      let output = "";
+
       data.forEach(course => {
         output += `<tr>
             <td>${course.code}</td>
             <td>${course.name}</td>
             <td>${course.progression}</td>
             <td><a target="_blank" href="${course.syllabus}">Kursplan</a></td>
-            <td><input type="submit" onclick="deleteCourse(${course.id})" class="button" value="Radera"></td>
+            <td><input type="submit" class="button" value="Radera" onclick="deleteCourse(${course.id})"></td>
 
             </tr>`;
       });
@@ -32,12 +37,8 @@ function showCourses() {
     });
 }
 //Lägg till kurs via formulär
-async function addCourse() {
-  let code = document.getElementById("code").value;
-  let name = document.getElementById("name").value;
-  let progression = document.getElementById("progression").value;
-  let syllabus = document.getElementById("syllabus").value;
-
+async function addCourse(event) {
+  event.preventDefault();
   let jsonStr = JSON.stringify({
     code: code,
     name: name,
@@ -69,6 +70,6 @@ function deleteCourse(id) {
     body: jsonStr
   })
     .then(res => res.json())
-    .then(data => console.log(data))
+    .then(data => showCourses(data))
     .catch(err => console.log(err));
 }
