@@ -8,6 +8,8 @@ Den här sidan hämtar data från ett Rest API läser in information om de kurse
 
 ### Länk
 
+https://mallind.se/courses/
+
 ### Klona projekt:
 
 git clone https://github.com/mali1710/moment5.2
