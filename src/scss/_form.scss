@@ -2,27 +2,10 @@
   width: 90%;
   margin: auto;
 
-  label {
-    font-size: 1.2em;
-    font-weight: 700;
-  }
-
-  .input-fields {
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-    margin: auto;
-    justify-content: space-between;
-    align-content: center;
-
-    .input {
-      width: 50%;
-      margin: 1em 0;
-    }
-  }
   input[type="text"] {
     width: 99%;
     margin: 0 auto 0.5em;
+    padding: 1em;
     height: 3em;
     font-size: 1em;
   }

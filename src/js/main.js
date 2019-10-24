@@ -1,10 +1,6 @@
 //Variabler
 const url = "https://mallind.se/rest_api/rest.php/kurser";
 const courseList = document.getElementById("courseList");
-let code = document.getElementById("code").value;
-let name = document.getElementById("name").value;
-let progression = document.getElementById("progression").value;
-let syllabus = document.getElementById("syllabus").value;
 
 const add = document.getElementById("add-course");
 
@@ -37,26 +33,32 @@ function showCourses() {
     });
 }
 //Lägg till kurs via formulär
-async function addCourse(event) {
-  event.preventDefault();
-  let jsonStr = JSON.stringify({
-    code: code,
-    name: name,
-    progression: progression,
-    syllabus: syllabus
-  });
+function addCourse(e) {
+  e.preventDefault();
+
+  let code = document.getElementById("code").value;
+  let name = document.getElementById("name").value;
+  let progression = document.getElementById("progression").value;
+  let syllabus = document.getElementById("syllabus").value;
 
   fetch(url, {
     method: "POST",
     mode: "cors",
     headers: {
-      "Content-Type": "application/json"
+      Accept: "application/json, text/plain, */*"
+      // "Content-type": "application/json"
     },
-    body: jsonStr
+    body: JSON.stringify({
+      code: code,
+      name: name,
+      progression: progression,
+      syllabus: syllabus
+    })
   })
     .then(res => res.json())
     .then(data => showCourses(data))
     .catch(err => console.log(err));
+  document.forms["add-course"].reset();
 }
 
 //Radera kurs
