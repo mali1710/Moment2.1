@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.css" />
+    <title>Webbutveckling | Moment 5</title>
+  </head>
+  <body>
+    <main>
+      <h1>Webbuttveckling III</h1>
+      <h2>Moment 5 - REST api</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Kurskod</th>
+            <th>Kursnamn</th>
+            <th>Progression</th>
+            <th>Länk</th>
+            <th>Radera</th>
+          </tr>
+        </thead>
+        <tbody id="courseList"></tbody>
+      </table>
+      <form id="add-course">
+        <div class="input-fields">
+          <div class="input">
+            <label for="code">Kurskod</label><br />
+            <input type="text" name="code" id="code" /><br />
+          </div>
+          <div class="input">
+            <label for="name">Kursnamn</label><br />
+            <input type="text" name="name" id="name" /><br />
+          </div>
+          <div class="input">
+            <label for="progression">Progression</label><br />
+            <input type="text" name="progression" id="progression" /><br />
+          </div>
+          <div class="input">
+            <label for="syllabus">Kursplan</label><br />
+            <input type="text" name="syllabus" id="syllabus" /><br />
+          </div>
+        </div>
+        <input type="submit" value="Lägg till" class="button" id="add" />
+      </form>
+    </main>
+    <footer>
+      &copy; Malin Lind | Mittuniversitet
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

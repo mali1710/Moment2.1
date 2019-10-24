@@ -1,0 +1,33 @@
+table {
+  width: 90%;
+  border: none;
+  margin: auto;
+  margin-bottom: 5em;
+
+  a {
+    color: $form-color;
+
+    &:hover {
+      color: lighten($form-color, 8);
+    }
+  }
+  td {
+    text-align: center;
+  }
+  thead {
+    background-color: $form-color;
+    font-size: 1.3em;
+
+    th {
+      padding: 0.5em 0;
+      margin: auto;
+      text-align: center;
+    }
+  }
+  tbody {
+    td {
+      padding: 1em 0;
+      border-bottom: 1px solid $form-color;
+    }
+  }
+}
